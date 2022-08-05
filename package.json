@@ -6,6 +6,9 @@
 	"author": "cgoern",
 	"license": "MIT",
 	"type": "module",
+	"files": [
+		"dist"
+	],
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/cgoern/low.git"
