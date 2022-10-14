@@ -1,6 +1,5 @@
 {
   "name": "@cgoern/low",
-  "private": true,
   "version": "1.0.0",
   "description": "Zero-dependencies custom elements.",
   "author": "cgoern",
