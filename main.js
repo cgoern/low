@@ -1,3 +1,3 @@
-import * as Button from './lib/button'
+import * as Text from './src/text'
 
-export { Button }
+export { Text }

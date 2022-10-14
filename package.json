@@ -1,39 +1,36 @@
 {
-	"name": "low",
-	"private": true,
-	"version": "0.0.0",
-	"description": "Zero-dependencies custom elements.",
-	"author": "cgoern",
-	"license": "MIT",
-	"type": "module",
-	"files": [
-		"dist"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/cgoern/low.git"
-	},
-	"main": "./dist/low.umd.cjs",
-	"module": "./dist/low.js",
-	"exports": {
-		".": {
-			"import": "./dist/low.js",
-			"require": "./dist/low.umd.cjs"
-		}
-	},
-	"scripts": {
-		"start": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
-		"format": "prettier . --write"
-	},
-	"devDependencies": {
-		"prettier": "^2.7.1",
-		"vite": "^3.0.4"
-	},
-	"prettier": {
-		"printWidth": 100,
-		"semi": false,
-		"singleQuote": true
-	}
+  "name": "low",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Zero-dependencies custom elements.",
+  "author": "cgoern",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgoern/low.git"
+  },
+  "module": "./dist/low.js",
+  "exports": {
+    ".": {
+      "import": "./dist/low.js"
+    }
+  },
+  "scripts": {
+    "start": "vite --host",
+    "build": "vite build",
+    "format": "prettier . --write"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "vite": "^3.0.4"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true
+  }
 }
