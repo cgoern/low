@@ -10,18 +10,12 @@
   --low-text-font-weight-heavy: 600;
 }
 
-@media (pointer: coarse) {
-  :root {
-    --low-text-font-size-base: 17px;
-  }
-}
-
 @font-face {
   font-display: swap;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 100 900;
-  src: url('fonts/Inter.var.woff2') format('woff2-variations');
+  src: url('./../assets/fonts/Inter.var.woff2') format('woff2-variations');
 }
 
 @font-face {
@@ -29,7 +23,7 @@
   font-family: 'Inter';
   font-style: italic;
   font-weight: 100 900;
-  src: url('fonts/Inter-Italic.var.woff2') format('woff2-variations');
+  src: url('./../assets/fonts/Inter-Italic.var.woff2') format('woff2-variations');
 }
 
 body {

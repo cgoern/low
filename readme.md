@@ -1,5 +1,5 @@
 # low
 
-Zero-dependencies custom elements.
+Low-dependencies custom elements.
 
 `npm i @cgoern/low`

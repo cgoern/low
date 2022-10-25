@@ -4,28 +4,33 @@
   "description": "Zero-dependencies custom elements.",
   "author": "cgoern",
   "license": "MIT",
-  "type": "module",
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cgoern/low.git"
   },
-  "module": "./dist/low.js",
-  "exports": {
-    ".": {
-      "import": "./dist/low.js"
-    }
-  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/low/low.esm.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
   "scripts": {
-    "start": "vite --host",
-    "build": "vite build",
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "generate": "stencil generate",
     "format": "prettier . --write"
   },
+  "dependencies": {
+    "@stencil/core": "^2.19.0"
+  },
   "devDependencies": {
-    "prettier": "^2.7.1",
-    "vite": "^3.0.4"
+    "prettier": "^2.7.1"
   },
   "prettier": {
     "printWidth": 100,
