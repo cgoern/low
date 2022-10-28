@@ -5,14 +5,60 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TextSize } from "./types";
+import { TextFieldBehavior, TextSize, TextWeight } from "./types";
 export namespace Components {
     interface LowText {
         /**
-          * The font size.
+          * { item_description }
+         */
+        "contentAfter": string;
+        /**
+          * { item_description }
+         */
+        "contentBefore": string;
+        /**
+          * { item_description }
          */
         "size": TextSize;
+        /**
+          * { item_description }
+         */
+        "weight": TextWeight;
     }
+    interface LowTextField {
+        /**
+          * { item_description }
+         */
+        "fieldName": string;
+        /**
+          * { item_description }
+         */
+        "fieldType": TextFieldBehavior;
+        /**
+          * { item_description }
+         */
+        "fieldValue": string;
+        /**
+          * { item_description }
+         */
+        "isClearable": boolean;
+        /**
+          * { item_description }
+         */
+        "isDisabled": boolean;
+        /**
+          * { item_description }
+         */
+        "isReadOnly": boolean;
+        /**
+          * { item_description }
+         */
+        "isRequired": boolean;
+    }
+}
+export interface LowTextFieldCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLowTextFieldElement;
 }
 declare global {
     interface HTMLLowTextElement extends Components.LowText, HTMLStencilElement {
@@ -21,19 +67,73 @@ declare global {
         prototype: HTMLLowTextElement;
         new (): HTMLLowTextElement;
     };
+    interface HTMLLowTextFieldElement extends Components.LowTextField, HTMLStencilElement {
+    }
+    var HTMLLowTextFieldElement: {
+        prototype: HTMLLowTextFieldElement;
+        new (): HTMLLowTextFieldElement;
+    };
     interface HTMLElementTagNameMap {
         "low-text": HTMLLowTextElement;
+        "low-text-field": HTMLLowTextFieldElement;
     }
 }
 declare namespace LocalJSX {
     interface LowText {
         /**
-          * The font size.
+          * { item_description }
+         */
+        "contentAfter"?: string;
+        /**
+          * { item_description }
+         */
+        "contentBefore"?: string;
+        /**
+          * { item_description }
          */
         "size"?: TextSize;
+        /**
+          * { item_description }
+         */
+        "weight"?: TextWeight;
+    }
+    interface LowTextField {
+        /**
+          * { item_description }
+         */
+        "fieldName"?: string;
+        /**
+          * { item_description }
+         */
+        "fieldType"?: TextFieldBehavior;
+        /**
+          * { item_description }
+         */
+        "fieldValue"?: string;
+        /**
+          * { item_description }
+         */
+        "isClearable"?: boolean;
+        /**
+          * { item_description }
+         */
+        "isDisabled"?: boolean;
+        /**
+          * { item_description }
+         */
+        "isReadOnly"?: boolean;
+        /**
+          * { item_description }
+         */
+        "isRequired"?: boolean;
+        /**
+          * Emits the changed value.
+         */
+        "onChangeFieldValue"?: (event: LowTextFieldCustomEvent<any>) => void;
     }
     interface IntrinsicElements {
         "low-text": LowText;
+        "low-text-field": LowTextField;
     }
 }
 export { LocalJSX as JSX };
@@ -41,6 +141,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "low-text": LocalJSX.LowText & JSXBase.HTMLAttributes<HTMLLowTextElement>;
+            "low-text-field": LocalJSX.LowTextField & JSXBase.HTMLAttributes<HTMLLowTextFieldElement>;
         }
     }
 }

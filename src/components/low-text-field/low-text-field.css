@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+#field {
+  font-size: calc(var(--low-text-font-size-base) / var(--low-text-font-size-ratio));
+  font-family: inherit;
+}
+
+button {
+  align-self: flex-start;
+}

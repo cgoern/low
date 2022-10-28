@@ -1,5 +1,5 @@
 import { Component, Prop, Host, Element, h } from '@stencil/core'
-import { TextSize } from './../../types'
+import { TextSize, TextWeight } from './../../types'
 
 @Component({
   tag: 'low-text',
@@ -10,9 +10,24 @@ export class LowText {
   @Element() host: HTMLLowTextElement
 
   /**
-   * The font size.
+   * { item_description }
    */
-  @Prop() size: TextSize
+  @Prop() size: TextSize = '0'
+
+  /**
+   * { item_description }
+   */
+  @Prop() weight: TextWeight = 'soft'
+
+  /**
+   * { item_description }
+   */
+  @Prop() contentBefore: string
+
+  /**
+   * { item_description }
+   */
+  @Prop() contentAfter: string
 
   private fontSize: number
   private upm: number
@@ -76,8 +91,10 @@ export class LowText {
 
   render() {
     return (
-      <Host>
-        <slot />
+      <Host class={`${this.size} ${this.weight}`}>
+        <span id="content" data-before={this.contentBefore} data-after={this.contentAfter}>
+          <slot />
+        </span>
       </Host>
     )
   }

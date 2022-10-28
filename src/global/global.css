@@ -3,12 +3,17 @@
   --low-text-font-feature-settings: 'calt', 'liga', 'ss03', 'zero', 'cv05', 'cv10', 'ss01';
   --low-text-font-upm: 2048;
   --low-text-font-cap-height: 1490;
-  --low-text-font-size-ratio: 1.2;
+  --low-text-font-size-ratio: 1.25;
   --low-text-font-size-base: 15px;
   --low-text-font-weight-soft: 400;
   --low-text-font-weight-strong: 500;
   --low-text-font-weight-heavy: 600;
 }
+
+/**
+ * Fonts
+ * Inter-4.0-beta7
+ */
 
 @font-face {
   font-display: swap;

@@ -9,41 +9,19 @@
     <link rel="stylesheet" type="text/css" href="/build/low.css" />
   </head>
   <body>
-    <low-text size="-2"
-      >Tempore ex velit placeat nobis nemo perferendis quis. Praesentium a voluptatibus tempore
-      similique qui enim quaerat minus.</low-text
-    >
-    <low-text size="-1"
-      >Tempore ex velit placeat nobis nemo perferendis quis. Praesentium a voluptatibus tempore
-      similique qui enim quaerat minus.</low-text
-    >
-    <low-text size="0"
-      >Tempore ex velit placeat nobis nemo perferendis quis. Praesentium a voluptatibus tempore
-      similique qui enim quaerat minus.</low-text
-    >
-    <low-text size="+1"
-      >Tempore ex velit placeat nobis nemo perferendis quis. Praesentium a voluptatibus tempore
-      similique qui enim quaerat minus.</low-text
-    >
-    <low-text size="+2"
-      >Tempore ex velit placeat nobis nemo perferendis quis. Praesentium a voluptatibus tempore
-      similique qui enim quaerat minus.</low-text
-    >
-    <low-text size="+3"
-      >Tempore ex velit placeat nobis nemo perferendis quis. Praesentium a voluptatibus tempore
-      similique qui enim quaerat minus.</low-text
-    >
-    <low-text size="+4"
-      >Tempore ex velit placeat nobis nemo perferendis quis. Praesentium a voluptatibus tempore
-      similique qui enim quaerat minus.</low-text
-    >
-    <low-text size="+5"
-      >Tempore ex velit placeat nobis nemo perferendis quis. Praesentium a voluptatibus tempore
-      similique qui enim quaerat minus.</low-text
-    >
-    <low-text size="+6"
-      >Tempore ex velit placeat nobis nemo perferendis quis. Praesentium a voluptatibus tempore
-      similique qui enim quaerat minus.</low-text
+    <low-text-field field-name="full-name" field-value="John Doe" is-required is-clearable
+      >Full name</low-text-field
     >
   </body>
+
+  <script type="text/javascript">
+    ;(async () => {
+      await customElements.whenDefined('low-text-field')
+      const textField = document.querySelector('low-text-field')
+
+      textField.addEventListener('changeFieldValue', (event) => {
+        console.log(event.detail)
+      })
+    })()
+  </script>
 </html>

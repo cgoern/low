@@ -2,7 +2,8 @@ import { Config } from '@stencil/core'
 
 export const config: Config = {
   namespace: 'low',
-  globalStyle: 'src/global/style.css',
+  globalStyle: 'src/global/global.css',
+  globalScript: 'src/global/global.ts',
   outputTargets: [
     {
       type: 'dist',
