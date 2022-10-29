@@ -1,13 +1,20 @@
 export default async () => {
-  const body = document.querySelector('body')
-  const head = document.querySelector('head')
-  const stylesheet = document.createElement('style')
-  const style = getComputedStyle(body)
-  const fontSizeBase = parseInt(style.getPropertyValue('--low-text-font-size-base'))
-  const fontSizeRatio = parseFloat(style.getPropertyValue('--low-text-font-size-ratio'))
-  const upm = parseInt(style.getPropertyValue('--low-text-font-upm'))
-  const capHeight = parseInt(style.getPropertyValue('--low-text-font-cap-height'))
-  const scales = []
+  const body: HTMLBodyElement = document.querySelector('body')
+  const head: HTMLHeadElement = document.querySelector('head')
+  const style: CSSStyleDeclaration = getComputedStyle(body)
+  const fontSizeBase: number = parseInt(style.getPropertyValue('--low-text-font-size-base'))
+  const fontSizeRatio: number = parseFloat(style.getPropertyValue('--low-text-font-size-ratio'))
+  const fontUpm: number = parseInt(style.getPropertyValue('--low-text-font-fontUpm'))
+  const fontCapHeight: number = parseInt(style.getPropertyValue('--low-text-font-cap-height'))
+
+  let stylesheet: HTMLStyleElement = document.createElement('style')
+  let fontScales: {
+    name: string
+    fontSize: number
+    lineHeight: number
+    letterSpacing: Number
+    leadingTrim: number
+  }[] = []
 
   /**
    * Gets the line height.
@@ -41,20 +48,20 @@ export default async () => {
    * @return {number}    The leading trim.
    */
   const getLeadingTrim = (fontSize: number, lineHeight: number): number => {
-    const height = 2 * Math.round(((capHeight / upm) * fontSize) / 2)
+    const textHeight = 2 * Math.round(((fontCapHeight / fontUpm) * fontSize) / 2)
 
-    return (lineHeight - height) / 2
+    return (lineHeight - textHeight) / 2
   }
 
   for (let level = -2; level < 7; level++) {
-    const sign = level < 0 ? 'minus' : level > 0 ? 'plus' : ''
+    const levelSign = level < 0 ? 'minus' : level > 0 ? 'plus' : ''
     const fontSize = Math.round(fontSizeBase * Math.pow(fontSizeRatio, level))
     const lineHeight = getLineHeight(fontSize)
     const letterSpacing = getLetterSpacing(fontSize)
     const leadingTrim = getLeadingTrim(fontSize, lineHeight)
 
-    scales.push({
-      name: `${sign}${sign !== '' ? '-' : ''}${Math.abs(level)}`,
+    fontScales.push({
+      name: `${levelSign}${levelSign !== '' ? '-' : ''}${Math.abs(level)}`,
       fontSize: fontSize,
       lineHeight: lineHeight,
       letterSpacing: letterSpacing,
@@ -63,7 +70,7 @@ export default async () => {
   }
 
   stylesheet.textContent = `:root {
-      ${scales
+      ${fontScales
         .map(
           (scale) => `
         --low-text-font-size-${scale.name}: ${scale.fontSize}px;
@@ -75,5 +82,6 @@ export default async () => {
         .join('')}
     }`
 
+  stylesheet.setAttribute('data-low-styles', '')
   head.appendChild(stylesheet)
 }
