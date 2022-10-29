@@ -13,65 +13,71 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: none;
+
   background: rgb(0 0 0 / 10%);
 }
 
 :host(.\-2) {
-  --low-text-font-size: calc(
-    var(--low-text-font-size-base) / var(--low-text-font-size-ratio) /
-      var(--low-text-font-size-ratio)
-  );
+  --low-text-font-size: var(--low-text-font-size-minus-2);
+  --low-text-line-height: var(--low-text-line-height-minus-2);
+  --low-text-letter-spacing: var(--low-text-letter-spacing-minus-2);
+  --low-text-leading-trim: var(--low-text-leading-trim-minus-2);
 }
 
 :host(.\-1) {
-  --low-text-font-size: calc(var(--low-text-font-size-base) / var(--low-text-font-size-ratio));
+  --low-text-font-size: var(--low-text-font-size-minus-1);
+  --low-text-line-height: var(--low-text-line-height-minus-1);
+  --low-text-letter-spacing: var(--low-text-letter-spacing-minus-1);
+  --low-text-leading-trim: var(--low-text-leading-trim-minus-1);
 }
 
 :host(\30) {
-  --low-text-font-size: var(--low-text-font-size-base);
+  --low-text-font-size: var(--low-text-font-size-0);
+  --low-text-line-height: var(--low-text-line-height-0);
+  --low-text-letter-spacing: var(--low-text-letter-spacing-0);
+  --low-text-leading-trim: var(--low-text-leading-trim-0);
 }
 
 :host(.\+1) {
-  --low-text-font-size: calc(var(--low-text-font-size-base) * var(--low-text-font-size-ratio));
+  --low-text-font-size: var(--low-text-font-size-plus-1);
+  --low-text-line-height: var(--low-text-line-height-plus-1);
+  --low-text-letter-spacing: var(--low-text-letter-spacing-plus-1);
+  --low-text-leading-trim: var(--low-text-leading-trim-plus-1);
 }
 
 :host(.\+2) {
-  --low-text-font-size: calc(
-    var(--low-text-font-size-base) * var(--low-text-font-size-ratio) *
-      var(--low-text-font-size-ratio)
-  );
+  --low-text-font-size: var(--low-text-font-size-plus-2);
+  --low-text-line-height: var(--low-text-line-height-plus-2);
+  --low-text-letter-spacing: var(--low-text-letter-spacing-plus-2);
+  --low-text-leading-trim: var(--low-text-leading-trim-plus-2);
 }
 
 :host(.\+3) {
-  --low-text-font-size: calc(
-    var(--low-text-font-size-base) * var(--low-text-font-size-ratio) *
-      var(--low-text-font-size-ratio) * var(--low-text-font-size-ratio)
-  );
+  --low-text-font-size: var(--low-text-font-size-plus-3);
+  --low-text-line-height: var(--low-text-line-height-plus-3);
+  --low-text-letter-spacing: var(--low-text-letter-spacing-plus-3);
+  --low-text-leading-trim: var(--low-text-leading-trim-plus-3);
 }
 
 :host(.\+4) {
-  --low-text-font-size: calc(
-    var(--low-text-font-size-base) * var(--low-text-font-size-ratio) *
-      var(--low-text-font-size-ratio) * var(--low-text-font-size-ratio) *
-      var(--low-text-font-size-ratio)
-  );
+  --low-text-font-size: var(--low-text-font-size-plus-4);
+  --low-text-line-height: var(--low-text-line-height-plus-4);
+  --low-text-letter-spacing: var(--low-text-letter-spacing-plus-4);
+  --low-text-leading-trim: var(--low-text-leading-trim-plus-4);
 }
 
 :host(.\+5) {
-  --low-text-font-size: calc(
-    var(--low-text-font-size-base) * var(--low-text-font-size-ratio) *
-      var(--low-text-font-size-ratio) * var(--low-text-font-size-ratio) *
-      var(--low-text-font-size-ratio) * var(--low-text-font-size-ratio)
-  );
+  --low-text-font-size: var(--low-text-font-size-plus-5);
+  --low-text-line-height: var(--low-text-line-height-plus-5);
+  --low-text-letter-spacing: var(--low-text-letter-spacing-plus-5);
+  --low-text-leading-trim: var(--low-text-leading-trim-plus-5);
 }
 
 :host(.\+6) {
-  --low-text-font-size: calc(
-    var(--low-text-font-size-base) * var(--low-text-font-size-ratio) *
-      var(--low-text-font-size-ratio) * var(--low-text-font-size-ratio) *
-      var(--low-text-font-size-ratio) * var(--low-text-font-size-ratio) *
-      var(--low-text-font-size-ratio)
-  );
+  --low-text-font-size: var(--low-text-font-size-plus-6);
+  --low-text-line-height: var(--low-text-line-height-plus-6);
+  --low-text-letter-spacing: var(--low-text-letter-spacing-plus-6);
+  --low-text-leading-trim: var(--low-text-leading-trim-plus-6);
 }
 
 :host::before,

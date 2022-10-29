@@ -4,7 +4,7 @@ import { TextFieldBehavior } from './../../types'
 @Component({
   tag: 'low-text-field',
   styleUrl: 'low-text-field.css',
-  shadow: false,
+  shadow: true,
 })
 export class LowTextField {
   /**
@@ -104,7 +104,7 @@ export class LowTextField {
         }}
       >
         <label id="label" htmlFor="input">
-          <low-text size="-2" contentAfter={this.isRequired ? '*' : ''}>
+          <low-text size="-1" contentAfter={this.isRequired ? '*' : ''}>
             <slot />
           </low-text>
         </label>

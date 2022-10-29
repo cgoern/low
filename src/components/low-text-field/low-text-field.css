@@ -4,8 +4,10 @@
 }
 
 #field {
-  font-size: calc(var(--low-text-font-size-base) / var(--low-text-font-size-ratio));
-  font-family: inherit;
+  font-family: var(--low-text-font-family);
+  font-size: var(--low-text-font-size-0);
+  line-height: var(--low-text-line-height-0);
+  letter-spacing: var(--low-text-letter-spacing-0);
 }
 
 button {

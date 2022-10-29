@@ -1,11 +1,14 @@
 export default async () => {
   const body = document.querySelector('body')
+  const head = document.querySelector('head')
+  const stylesheet = document.createElement('style')
   const style = getComputedStyle(body)
   const fontSizeBase = parseInt(style.getPropertyValue('--low-text-font-size-base'))
   const fontSizeRatio = parseFloat(style.getPropertyValue('--low-text-font-size-ratio'))
   const upm = parseInt(style.getPropertyValue('--low-text-font-upm'))
   const capHeight = parseInt(style.getPropertyValue('--low-text-font-cap-height'))
   const scales = []
+
   /**
    * Gets the line height.
    *
@@ -59,9 +62,18 @@ export default async () => {
     })
   }
 
-  // document.
+  stylesheet.textContent = `:root {
+      ${scales
+        .map(
+          (scale) => `
+        --low-text-font-size-${scale.name}: ${scale.fontSize}px;
+        --low-text-line-height-${scale.name}: ${scale.lineHeight}px;
+        --low-text-letter-spacing-${scale.name}: ${scale.letterSpacing}em;
+        --low-text-leading-trim-${scale.name}: ${scale.leadingTrim}px;
+      `
+        )
+        .join('')}
+    }`
 
-  // scales.forEach((scale) => {
-
-  // })
+  head.appendChild(stylesheet)
 }
